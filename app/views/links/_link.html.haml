@@ -1,0 +1,4 @@
+%li
+  = link_to link.title, link
+  = link_to "Delete", link, method: :delete, data: { confirm: "You sure?" }
+  = link_to "Edit", edit_link_path(link)
