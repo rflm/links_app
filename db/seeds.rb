@@ -10,6 +10,13 @@
   title = Faker::Lorem.sentence
   url = Faker::Internet.url
   description = Faker::Lorem.paragraph
-  Link.create!(title: title, url: url, description: description)
+  Link.create!(title: title, url: url, 
+                      description: description)
+
+  name = Faker::Name.name
+  email = "example-#{n+1}@email.com"
+  password = "password"
+  User.create!(name: name, email: email, 
+            password: password, password_confirmation: password)
 end
 

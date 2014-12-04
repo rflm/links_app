@@ -3,5 +3,7 @@
     .container
       = link_to "Links sharing app", root_path, id: "logo"
       %nav
-        %ul.nav.pull-left
+        %ul.nav.navbar-nav.pull-left
           %li= link_to "Add link", new_link_path
+          %li= link_to "Add user", new_user_path
+          %li= link_to "Show users", users_path
