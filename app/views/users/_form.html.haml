@@ -16,4 +16,5 @@
       = f.label "Password confirmation"
       = f.password_field :password_confirmation
 
-      = f.submit 'Save'
+      = f.submit 'Save', class: "btn btn-large btn primary"
+      = link_to 'Back', links_path
