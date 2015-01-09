@@ -1,0 +1,4 @@
+%li
+  = comment.content
+  = link_to "Delete", link_comment_path(@link, comment), method: :delete, data: { confirm: "You sure?" }
+  = link_to "Edit", edit_link_comment_path(@link, comment)

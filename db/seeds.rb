@@ -7,16 +7,25 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 99.times do |n|
+
   title = Faker::Lorem.sentence
   url = Faker::Internet.url
   description = Faker::Lorem.paragraph
   Link.create!(title: title, url: url, 
-                      description: description)
+    description: description)
 
   name = Faker::Name.name
   email = "example-#{n+1}@email.com"
   password = "password"
   User.create!(name: name, email: email, 
-            password: password, password_confirmation: password)
+    password: password, password_confirmation: password)
+
 end
 
+50.times do |n|
+
+  link = Link.first
+  content = Faker::Lorem.sentence
+  link.comments.create!(content: content)
+  
+end
