@@ -42,6 +42,13 @@ class LinksController < ApplicationController
     redirect_to links_url
   end
 
+  def vote
+    value = params[:type] == "up" ? 1 : -1
+    @link = Link.find(params[:id])
+    @link.add_or_update_evaluation(:votes, value, current_user)
+    redirect_to :back, notice: "Thank you for voting"
+  end
+
   private
     def link_params
       params.require(:link).permit(:title, :url, :description)

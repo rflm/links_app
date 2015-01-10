@@ -3,3 +3,7 @@
   = link_to "Delete", link, method: :delete, data: { confirm: "You sure?" }
   = link_to "Edit", edit_link_path(link)
   = link.comments.count
+  - if current_user
+    = link_to "up", vote_link_path(link, type: "up"), method: "post"
+    = link_to "down", vote_link_path(link, type: "down"), method: "post"
+  = link.reputation_for(:votes).to_i

@@ -6,8 +6,10 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-99.times do |n|
+User.create!(name: "exmpl usr", email:"usr@example.com", 
+  password: "password", password_confirmation: "password")
 
+99.times do |n|
   title = Faker::Lorem.sentence
   url = Faker::Internet.url
   description = Faker::Lorem.paragraph
@@ -23,7 +25,6 @@
 end
 
 50.times do |n|
-
   link = Link.first
   content = Faker::Lorem.sentence
   link.comments.create!(content: content)

@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :users
   resources :links do
     resources :comments
+    member { post :vote }
   end
   
   # The priority is based upon order of creation: first created -> highest priority.
