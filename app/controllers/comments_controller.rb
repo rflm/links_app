@@ -21,14 +21,16 @@ class CommentsController < ApplicationController
   end
 
   def edit
+    @link = Link.find(params[:link_id])
     @comment = Comment.find(params[:id])
   end
 
   def update
+    @link = Link.find(params[:link_id])
     @comment = Comment.find(params[:id])
     if @comment.update_attributes(comment_params)
       flash[:success] = "Comment updated!"
-
+      redirect_to link_comments_path
     else
       render 'edit'
     end
