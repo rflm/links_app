@@ -7,7 +7,8 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 User.create!(name: "exmpl usr", email:"usr@example.com", 
-  password: "password", password_confirmation: "password")
+  password: "password", password_confirmation: "password",
+  admin: true)
 
 99.times do |n|
   title = Faker::Lorem.sentence
