@@ -23,12 +23,15 @@ ActiveRecord::Schema.define(version: 20150111160832) do
   add_index "comments", ["link_id"], name: "index_comments_on_link_id"
 
   create_table "links", force: true do |t|
+    t.integer  "user_id"
     t.string   "title"
     t.string   "url"
     t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "links", ["user_id"], name: "index_links_on_user_id"
 
   create_table "rs_evaluations", force: true do |t|
     t.string   "reputation_name"

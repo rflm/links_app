@@ -6,22 +6,28 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+r = Random.new
+
 User.create!(name: "exmpl usr", email:"usr@example.com", 
   password: "password", password_confirmation: "password",
   admin: true)
 
-99.times do |n|
-  title = Faker::Lorem.sentence
-  url = Faker::Internet.url
-  description = Faker::Lorem.paragraph
-  Link.create!(title: title, url: url, 
-    description: description)
-
+49.times do |n|
   name = Faker::Name.name
   email = "example-#{n+1}@email.com"
   password = "password"
   User.create!(name: name, email: email, 
     password: password, password_confirmation: password)
+
+end
+
+99.times do |n|
+  user = User.find(r.rand(1..50))
+  title = Faker::Lorem.sentence
+  url = Faker::Internet.url
+  description = Faker::Lorem.paragraph
+  user.links.create!(title: title, url: url, 
+    description: description)
 
 end
 
