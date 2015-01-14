@@ -7,12 +7,14 @@
           .score= link.reputation_for(:votes).to_i
           .downvote= link_to "down", vote_link_path(link, type: "down"), method: "post"
 
+      - if current_user.id == link.user_id
+        .right
+          = link_to "Delete", link, method: :delete, data: { confirm: "You sure?" }
+          = link_to "Edit", edit_link_path(link)
+
     = link_to link.title, link
 
-    - if current_user.id == link.user_id
-      .right
-        = link_to "Delete", link, method: :delete, data: { confirm: "You sure?" }
-        = link_to "Edit", edit_link_path(link)
+    
   
   = link_to "Comments: #{link.comments.count}", link_comments_path(link)
   
