@@ -32,8 +32,9 @@ end
 end
 
 50.times do |n|
+  user = User.find(r.rand(1..50))
   link = Link.first
   content = Faker::Lorem.sentence
-  link.comments.create!(content: content)
+  link.comments.create!(content: content, user: user)
   
 end

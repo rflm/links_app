@@ -1,6 +1,14 @@
 %li
-  = comment.content
-  - if current_user
-    -if current_user.admin? || current_user == @link.user || current_user == @link.user
-      = link_to "Delete", link_comment_path(@link, comment), method: :delete, data: { confirm: "You sure?" }
-      = link_to "Edit", edit_link_comment_path(@link, comment)
+  .left
+    %p= comment.content
+    %p
+      %small 
+        = "Posted by: "
+        = link_to "#{comment.user.name}", comment.user
+        = "#{comment.created_at}"
+  .right
+    - if current_user
+      -if current_user.admin? || current_user == @link.user || current_user == @link.user
+        .right
+          = link_to "Delete", link_comment_path(@link, comment), method: :delete, data: { confirm: "You sure?" }
+          = link_to "Edit", edit_link_comment_path(@link, comment)

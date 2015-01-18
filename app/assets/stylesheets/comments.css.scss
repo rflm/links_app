@@ -16,5 +16,11 @@
     &:last-child {
       border-bottom: 1px solid $gray-lighter;
     }
+    .admin-sign {
+      float: left;
+      height: 50px;
+      width: 20px;
+      background: red;
+    }
   }
 }

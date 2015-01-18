@@ -15,12 +15,14 @@ ActiveRecord::Schema.define(version: 20150111160832) do
 
   create_table "comments", force: true do |t|
     t.integer  "link_id"
+    t.integer  "user_id"
     t.string   "content"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "comments", ["link_id"], name: "index_comments_on_link_id"
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id"
 
   create_table "links", force: true do |t|
     t.integer  "user_id"
