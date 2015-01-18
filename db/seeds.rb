@@ -8,7 +8,7 @@
 
 r = Random.new
 
-User.create!(name: "exmpl usr", email:"usr@example.com", 
+User.create!(name: "admin", email:"admin@email.com", 
   password: "password", password_confirmation: "password",
   admin: true)
 

@@ -1,16 +1,15 @@
 %li
   %p
-    - if current_user
-      .voting.left
-        .center
-          .upvote= link_to "up", vote_link_path(link, type: "up"), method: "post"
-          .score= link.reputation_for(:votes).to_i
-          .downvote= link_to "down", vote_link_path(link, type: "down"), method: "post"
-
-      - if current_user.id == link.user_id
-        .right
-          = link_to "Delete", link, method: :delete, data: { confirm: "You sure?" }
-          = link_to "Edit", edit_link_path(link)
+    .voting.left
+      .center
+        .upvote= link_to "up", vote_link_path(link, type: "up"), method: "post"
+        .score= link.reputation_for(:votes).to_i
+        .downvote= link_to "down", vote_link_path(link, type: "down"), method: "post"
+      -if current_user
+        - if current_user.id == link.user_id
+          .right
+            = link_to "Delete", link, method: :delete, data: { confirm: "You sure?" }
+            = link_to "Edit", edit_link_path(link)
 
     = link_to link.title, link
 
