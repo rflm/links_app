@@ -16,5 +16,10 @@
     &:last-child {
       border-bottom: 1px solid $gray-lighter;
     }
+    .avatar {
+      float: left;
+      width: 50px;
+      height: 50px;
+    }
   }
 }

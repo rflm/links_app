@@ -16,8 +16,11 @@ User.create!(name: "admin", email:"admin@email.com",
   name = Faker::Name.name
   email = "example-#{n+1}@email.com"
   password = "password"
+  avatar = Faker::Avatar.image
+  description = Faker::Lorem.paragraph
   User.create!(name: name, email: email, 
-    password: password, password_confirmation: password)
+    password: password, password_confirmation: password,
+    avatar: avatar, description: description)
 
 end
 

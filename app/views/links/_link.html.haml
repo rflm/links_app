@@ -7,7 +7,7 @@
         .downvote= link_to "down", vote_link_path(link, type: "down"), method: "post"       
     = link_to link.title, link
 
-    - if current_user.admin?
+    - if current_user != nil && current_user.admin?
       .right
         = link_to "Delete", link, method: :delete, data: { confirm: "You sure?" }
         = link_to "Edit", edit_link_path(link)   
