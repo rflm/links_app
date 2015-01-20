@@ -3,6 +3,7 @@ FactoryGirl.define do
     f.title { Faker::Lorem.sentence }
     f.url { Faker::Internet.url }
     f.description { Faker::Lorem.paragraph }
+    f.user_id 1
   end
 
   factory :invalid_link, class: Link do |f|
