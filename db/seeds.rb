@@ -6,8 +6,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-r = Random.new
-
 User.create!(name: "admin", email:"admin@email.com", 
   password: "password", password_confirmation: "password",
   admin: true)
@@ -25,19 +23,21 @@ User.create!(name: "admin", email:"admin@email.com",
 end
 
 99.times do |n|
-  user = User.find(r.rand(1..50))
+  user = User.all.sample
   title = Faker::Lorem.sentence
   url = Faker::Internet.url
   description = Faker::Lorem.paragraph
-  user.links.create!(title: title, url: url, 
+  link = user.links.create!(title: title, url: url, 
     description: description)
 
-end
+  (1..100).to_a.sample.times do |i|
+    commenter = User.all.sample
+    content = Faker::Lorem.sentence
+    link.comments.create!(content: content, user: commenter)
+  end
 
-50.times do |n|
-  user = User.find(r.rand(1..50))
-  link = Link.first
-  content = Faker::Lorem.sentence
-  link.comments.create!(content: content, user: user)
-  
+  voters = User.all.sample((1..User.count).to_a.sample).to_a  # picks table of random users
+  voters.each do |i|
+    link.add_evaluation(:votes, [-1,1].sample, i)
+  end
 end
