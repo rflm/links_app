@@ -13,4 +13,9 @@ FactoryGirl.define do
     f.password_confirmation "password"
     f.admin true
   end
+
+  factory :invalid_user, class: User do |f|
+    f.name nil
+    f.email nil
+  end
 end
