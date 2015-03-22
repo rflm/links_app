@@ -6,6 +6,20 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+user = User.create!(name: "John", email: "john@example.com",
+  password: "password", password_confirmation: "password")
+
+title = "Wikipedia, the free encyclopedia"
+url = "http://en.wikipedia.org/wiki/Main_Page"
+thumbnail_url = "https://tctechcrunch2011.files.wordpress.com/2010/05/wikipedia1.png"
+description = "The free encyclopedia"
+
+user.links.create!(title: title, url: url,
+  thumbnail_url: thumbnail_url, description: description)
+
+
+=begin
+
 User.create!(name: "admin", email:"admin@email.com", 
   password: "password", password_confirmation: "password",
   admin: true)
@@ -41,3 +55,5 @@ end
     link.add_evaluation(:votes, [-1,1].sample, i)
   end
 end
+
+=end

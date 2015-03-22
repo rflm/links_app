@@ -1,16 +1,16 @@
 %li
-  %p
-    .voting.left
-      .center
-        .upvote= link_to "up", vote_link_path(link, type: "up"), method: "post"
-        .score= link.reputation_for(:votes).to_i
-        .downvote= link_to "down", vote_link_path(link, type: "down"), method: "post"       
-    = link_to link.title, link
+  .voting.left
+    .center
+      .upvote= link_to "up", vote_link_path(link, type: "up"), method: "post"
+      .score= link.reputation_for(:votes).to_i
+      .downvote= link_to "down", vote_link_path(link, type: "down"), method: "post"    
+  = image_tag(link.thumbnail_url, height: '128px', width: '190px')   
+  = link_to link.title, link
 
-    - if current_user != nil && current_user.admin?
-      .right
-        = link_to "Delete", link, method: :delete, data: { confirm: "You sure?" }
-        = link_to "Edit", edit_link_path(link)   
+  - if current_user != nil && current_user.admin?
+    .right
+      = link_to "Delete", link, method: :delete, data: { confirm: "You sure?" }
+      = link_to "Edit", edit_link_path(link)   
   
   = link_to "Comments: #{link.comments.count}", link_comments_path(link)
   

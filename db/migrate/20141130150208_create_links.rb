@@ -4,6 +4,7 @@ class CreateLinks < ActiveRecord::Migration
       t.belongs_to :user, index: true
       t.string :title
       t.string :url
+      t.string :thumbnail_url
       t.string :description
       
       t.timestamps
