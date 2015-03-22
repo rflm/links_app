@@ -17,7 +17,14 @@
       border-bottom: 1px solid $gray-lighter;
     }
   }
-  .voting {
+
+  .votebox {
     margin-right: 10px;
   }
+
+  .thumbnail {
+    height: 128px;
+    width: 190px;
+  }
+
 }
