@@ -10,6 +10,5 @@ require 'rails_helper'
 #     end
 #   end
 # end
-RSpec.describe SessionsHelper, :type => :helper do
-  
+RSpec.describe SessionsHelper, type: :helper do
 end

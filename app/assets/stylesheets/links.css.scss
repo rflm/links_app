@@ -19,12 +19,24 @@
   }
 
   .votebox {
-    margin-right: 10px;
+    text-align: center;
+    margin-right: 10px; 
+    .upvote {
+      border-radius: 5px;
+      &:hover {
+        background-color: green;
+      }  
+    }
+    .downvote {
+      border-radius: 5px;
+      &:hover {
+        background-color: red;
+      } 
+    }
   }
 
   .thumbnail {
     height: 128px;
     width: 190px;
   }
-
 }

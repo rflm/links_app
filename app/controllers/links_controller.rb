@@ -1,5 +1,6 @@
 class LinksController < ApplicationController
-  before_action :logged_in_user, only: [:new, :create, :vote, :edit, :update, :destroy]
+  before_action :logged_in_user,
+                only: [:new, :create, :vote, :edit, :update, :destroy]
   before_action :correct_user, only: [:edit, :update]
   before_action :admin_user, only: :destroy
 
@@ -18,7 +19,7 @@ class LinksController < ApplicationController
   def create
     @link = Link.new(link_params)
     if @link.save
-      flash[:success] = "Link added!"
+      flash[:success] = 'Link added!'
       redirect_to @link
     else
       render 'new'
@@ -32,7 +33,7 @@ class LinksController < ApplicationController
   def update
     @link = Link.find(params[:id])
     if @link.update_attributes(link_params)
-      flash[:success] = "Link updated!"
+      flash[:success] = 'Link updated!'
       redirect_to @link
     else
       render 'edit'
@@ -41,20 +42,20 @@ class LinksController < ApplicationController
 
   def destroy
     Link.find(params[:id]).destroy
-    flash[:success] = "Link destroyed!"
+    flash[:success] = 'Link destroyed!'
     redirect_to links_url
   end
 
   def vote
-    value = params[:type] == "up" ? 1 : -1
+    value = params[:type] == 'up' ? 1 : -1
     @link = Link.find(params[:id])
     @link.add_or_update_evaluation(:votes, value, current_user)
-    redirect_to :back, notice: "Thank you for voting"
+    redirect_to :back, notice: 'Thank you for voting'
   end
 
   private
-    def link_params
-      params.require(:link).permit(:title, :url, :description)
-    end
-    
+
+  def link_params
+    params.require(:link).permit(:title, :url, :description)
+  end
 end

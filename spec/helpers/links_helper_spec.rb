@@ -10,6 +10,5 @@ require 'rails_helper'
 #     end
 #   end
 # end
-RSpec.describe LinksHelper, :type => :helper do
-
+RSpec.describe LinksHelper, type: :helper do
 end

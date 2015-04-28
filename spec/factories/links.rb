@@ -1,4 +1,4 @@
-FactoryGirl.define do 
+FactoryGirl.define do
   factory :link do |f|
     f.title { Faker::Lorem.sentence }
     f.url { Faker::Internet.url }

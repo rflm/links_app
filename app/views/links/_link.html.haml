@@ -1,4 +1,4 @@
-%li
+%li.link
   .left
     .left
       .votebox
@@ -11,7 +11,7 @@
   %h2= link_to link.title, link
   %p= link.description
   = link_to "Comments: #{link.comments.count}", link_comments_path(link)
-  = "Submitted: #{link.created_at} by: "
+  = "Submitted: #{distance_of_time_in_words(link.created_at, Time.now)} ago by: "
   = link_to "@#{link.user.name}", user_path(link.user)
 
   - if current_user != nil && current_user.admin?
