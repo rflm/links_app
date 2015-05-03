@@ -1,8 +1,4 @@
 class LinksController < ApplicationController
-  before_action :logged_in_user,
-                only: [:new, :create, :vote, :edit, :update, :destroy]
-  before_action :correct_user, only: [:edit, :update]
-  before_action :admin_user, only: :destroy
 
   def index
     @links = Link.paginate(page: params[:page])

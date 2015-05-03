@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :user do |f|
-    f.name Faker::Name.name
+    f.name 'Steve'
     f.email 'example@email.com'
     f.password 'password'
     f.password_confirmation 'password'
