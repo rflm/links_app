@@ -1,7 +1,4 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!, except: [:show, :index]
-  # before_action :admin_user, only: :destroy
-
   def index
     @users = User.paginate(page: params[:page])
   end
