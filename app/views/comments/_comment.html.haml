@@ -1,13 +1,13 @@
-%li
-  .left
-    %p= comment.content
-    %p
-      %small 
-        = "Posted by: "
-        = link_to "#{comment.user.name}", comment.user
-        = "#{comment.created_at}"
-  .right
-    -if current_user != nil && (current_user.admin? || current_user == User.find(@link.user_id))
-      .right
-        = link_to "Delete", link_comment_path(@link, comment), method: :delete, data: { confirm: "You sure?" }
-        = link_to "Edit", edit_link_comment_path(@link, comment)
+%li{ style: "list-style-type: none" }
+  %p= comment.content
+  %small 
+    = "Posted by: "
+    = link_to "#{comment.user.name}", comment.user
+    = "#{comment.created_at}"
+
+  -if current_user != nil && (current_user.admin? || current_user == User.find(@link.user_id))
+    .right
+      = link_to "Delete", link_comment_path(@link, comment), method: :delete, data: { confirm: "You sure?" }
+      = link_to "Edit", edit_link_comment_path(@link, comment)
+
+%hr
