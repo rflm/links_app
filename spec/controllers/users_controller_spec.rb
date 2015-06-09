@@ -4,11 +4,11 @@ RSpec.describe UsersController, type: :controller do
 	it "should have a current_user" do
 		@user = FactoryGirl.create(:user)
 		sign_in(:user, @user)
-    subject.current_user.should_not be_nil
+    expect(subject.current_user).not_to be_nil
   end
 
   it "should get index" do
     get 'index'
-    response.should be_success
+    expect(response).to be_success
   end
 end

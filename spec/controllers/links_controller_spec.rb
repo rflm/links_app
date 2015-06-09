@@ -36,7 +36,7 @@ RSpec.describe LinksController, type: :controller do
 
   describe 'GET #new' do
     it 'responds successfully with an HTTP 200 status code' do
-      controller.class.skip_before_filter :logged_in_user
+      controller.class.skip_before_filter :authenticate_user!
       get :new
       expect(response).to be_success
       expect(response).to have_http_status(200)
