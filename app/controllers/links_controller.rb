@@ -1,4 +1,6 @@
 class LinksController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy, :vote]
+
   def index
     @links = Link.paginate(page: params[:page])
   end
