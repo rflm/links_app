@@ -20,7 +20,7 @@ gem 'sdoc',                    '0.4.0', group: :doc
 gem 'devise'
 
 group :development, :test do
-  gem 'sqlite3',     '1.3.9'
+  gem 'pg'
   gem 'rspec-rails', '~> 3.0'
   gem 'factory_girl_rails'
   gem 'byebug',      '3.4.0'
@@ -37,7 +37,7 @@ group :test do
 end
 
 group :production do
-  gem 'pg',             '0.17.1'
+  gem 'pg'
   gem 'rails_12factor', '0.0.2'
   gem 'unicorn',        '4.8.3'
 end
