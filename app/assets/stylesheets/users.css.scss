@@ -1,3 +1,45 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "bootstrap";
+
+/* users index */
+
+.users {
+  list-style: none;
+  margin: 0;
+  li {
+    overflow: auto;
+    padding: 10px 0;
+    border-top: 1px solid $gray-lighter;
+    &:last-child {
+      border-bottom: 1px solid $gray-lighter;
+    }
+  }
+}
+
+.avatar {
+    height: 190px;
+    width: 190px;
+  }
+
+/*
+  .votebox {
+    text-align: center;
+    margin-right: 10px; 
+    .upvote {
+      border-radius: 5px;
+      &:hover {
+        background-color: green;
+      }  
+    }
+    .downvote {
+      border-radius: 5px;
+      &:hover {
+        background-color: red;
+      } 
+    }
+  }
+}
+*/

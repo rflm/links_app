@@ -2,7 +2,7 @@
 = @link.description
 
 %p
-  - if current_user &&  (current_user.admin? || current_user == User.find(@link.user_id))
+  - if current_user &&  (current_user.admin? || current_user == @link.user)
     = link_to 'Edit', edit_link_path(@link)
   = link_to 'Back', links_path
 

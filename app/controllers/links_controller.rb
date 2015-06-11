@@ -2,7 +2,7 @@ class LinksController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy, :vote]
 
   def index
-    @links = Link.paginate(page: params[:page])
+    @links = Link.paginate(page: params[:page], per_page: 15)
   end
 
   def show
@@ -16,6 +16,7 @@ class LinksController < ApplicationController
 
   def create
     @link = Link.new(link_params)
+    @link.user = current_user
     if @link.save
       flash[:success] = 'Link added!'
       redirect_to @link
@@ -54,6 +55,6 @@ class LinksController < ApplicationController
   private
 
   def link_params
-    params.require(:link).permit(:title, :url, :description)
+    params.require(:link).permit(:title, :url, :description, :thumbnail_url)
   end
 end

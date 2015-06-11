@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   devise_for :users
   root 'links#index'
 
-  resources :users
+  get 'users/:id' => 'users#show', as: :user
+  get 'users' => 'users#index'
+
   resources :links do
     resources :comments
     member { post :vote }

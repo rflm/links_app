@@ -1,48 +1,25 @@
 class CommentsController < ApplicationController
-  def index
-    @link = Link.find(params[:link_id])
-  end
-
-  def new
-    @comment = Comment.new
-  end
+  before_action :set_link
 
   def create
-    @link = Link.find(params[:link_id])
-    @comment = @link.comments.new(comment_params)
+    @comment = Comment.new(comment_params)
+    @comment.link = @link
+    @comment.user = current_user
     if @comment.save
       flash[:success] = 'Comment added!'
-      redirect_to link_comments_path
+      redirect_to link_path(@link)
     else
       render 'new'
     end
   end
 
-  def edit
-    @link = Link.find(params[:link_id])
-    @comment = Comment.find(params[:id])
-  end
-
-  def update
-    @link = Link.find(params[:link_id])
-    @comment = Comment.find(params[:id])
-    if @comment.update_attributes(comment_params)
-      flash[:success] = 'Comment updated!'
-      redirect_to link_comments_path
-    else
-      render 'edit'
-    end
-  end
-
-  def destroy
-    Comment.find(params[:id]).destroy
-    flash[:success] = 'Comment destroyed!'
-    redirect_to link_comments_path
-  end
-
   private
 
-  def comment_params
-    params.require(:comment).permit(:content)
-  end
+    def set_link
+      @link = Link.find(params[:link_id])
+    end
+
+    def comment_params
+      params.require(:comment).permit(:content)
+    end
 end

@@ -1,9 +1,0 @@
-.row
-  .col-md-6.col-md-offset-3
-    = form_for([:link, @comment] ) do |f|
-      
-      = f.label "Content"
-      = f.text_area :content, rows: 4
-
-      = f.submit "Save", class: "btn btn-large btn-primary"
-      = link_to 'Back', link_comments_path

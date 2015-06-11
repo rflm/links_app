@@ -1,6 +1,6 @@
-.left= image_tag(@user.avatar)
+.left= image_tag(@user.avatar, class: "avatar")
 %h1= @user.name
 %p= @user.description
 - if current_user != nil && (current_user.admin? || current_user == @user)
-  = link_to 'Edit', edit_user_path(@user)
+  = link_to 'Edit', edit_user_registration_path
 = link_to 'Back', users_path
