@@ -1,7 +1,11 @@
 %li{ style: "list-style-type: none" }
   %p= comment.content
-  %small 
-    = "Posted by: "
-    = link_to "#{comment.user.name}", comment.user
-    = "#{comment.created_at}"
+  %small
+    - if comment.user != nil
+      = "Posted by: "
+      = link_to "#{comment.user.name}", comment.user
+      = "#{comment.created_at}"
+    - else
+      = "Posted by deleted user"
+      = "#{comment.created_at}"
 %hr
