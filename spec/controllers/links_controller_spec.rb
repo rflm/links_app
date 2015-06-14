@@ -15,7 +15,7 @@ RSpec.describe LinksController, type: :controller do
     it 'loads all of the links into @links' do
       link = FactoryGirl.create(:link)
       get :index
-      expect(assigns(:links)).to eq([link])
+      expect(Link.all).to eq([link])
     end
   end
 

@@ -2,7 +2,7 @@ class LinksController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy, :vote]
 
   def index
-    @links = Link.paginate(page: params[:page], per_page: 15)
+    @links = Link.with_comments_count.paginate(page: params[:page], per_page: 15)
   end
 
   def show
